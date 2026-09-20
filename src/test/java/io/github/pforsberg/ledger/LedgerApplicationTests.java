@@ -1,4 +1,4 @@
-package io.github.P_forsberg.ledger;
+package io.github.pforsberg.ledger;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
