@@ -1,5 +1,6 @@
 package io.github.pforsberg.ledger.transfer;
 import io.github.pforsberg.ledger.transfer.dto.CreateTransferRequest;
+import io.github.pforsberg.ledger.transfer.dto.TransferResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,8 +16,8 @@ public class TransferController {
 
     @PostMapping
     public ResponseEntity<TransferResponse> create(@RequestHeader("Idempotency-Key") String idempotencyKey,
-        @Valid @RequestBody CreateTransferRequest request){
-        TransferRespone response = transactionService.create(idempotencyKey, request);
+                                                   @Valid @RequestBody CreateTransferRequest request){
+        TransferResponse response = transactionService.create(idempotencyKey, request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
